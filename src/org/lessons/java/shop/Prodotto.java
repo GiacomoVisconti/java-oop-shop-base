@@ -1,15 +1,17 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Prodotto {
     public int code;
     public String name;
     public String description;
-    public float price;
-    public float iva;
+    public BigDecimal price;
+    public BigDecimal iva;
 
     //CONSTRUCTOR
-    public Prodotto(String name, String description, float price, float iva){
+    public Prodotto(String name, String description, BigDecimal price, BigDecimal iva){
         this.code = (int)(Math.random() * 999);
         this.name = name;
         this.description = description;
@@ -17,17 +19,24 @@ public class Prodotto {
         this.iva =iva;
     }
 
-    public void basePrice(){
-        System.out.println(this.price);
+    public BigDecimal basePrice(){
+        return this.price;
     }
 
-    public float totalPrice(){
-        float total = this.price + (this.price * this.iva);
-        return total;
+    public BigDecimal totalPrice(){
+        if (price != null && iva != null) {
+            
+            return price.add(price.multiply(iva)).setScale(2, RoundingMode.DOWN);
+        }
+        return null;
     }
 
     public String extendedName(){
-        String fullName = this.code + "-" + this.name.replace(" ", "-");
-        return fullName;
+        if (name != null) {
+            
+            String fullName = this.code + "-" + this.name.replace(" ", "-");
+            return fullName;
+        }
+        return null;
     }
 }
