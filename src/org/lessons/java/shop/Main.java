@@ -16,19 +16,7 @@ public class Main {
         new BigDecimal(0.22));
 
         //? STAMPO I VALORI ESEGUENDONE I METODI
-        System.out.println(pc1.code);
-        System.out.println(pc1.name);
-        System.out.println(pc1.description);
-        System.out.println(pc1.basePrice());
-        System.out.println(pc1.totalPrice());
-        System.out.println(pc1.extendedName());
-
-        System.out.println(caffettiera1.code);
-        System.out.println(caffettiera1.name);
-        System.out.println(caffettiera1.description);
-        System.out.println(caffettiera1.basePrice());
-        System.out.println(caffettiera1.totalPrice());
-        System.out.println(caffettiera1.extendedName());
+        
 
 
     }
